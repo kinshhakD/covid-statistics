@@ -57,7 +57,7 @@ const useStyles = makeStyles({
 });
 
 function CountryDetails({ onOpen, onClose }) {
-  const countryDetail = useSelector((state) => state.list.countryDetail);
+  const countryDetail = useSelector((state) => state.countries.countryDetail);
 
   const styles = useStyles();
 

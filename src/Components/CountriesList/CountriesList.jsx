@@ -11,13 +11,13 @@ function CountriesList() {
 
   const [sortByTotalConfirmed, setSortByTotalConfirmed] = useState('default');
 
-  const countries = useSelector((state) => state.list.countries);
+  const countries = useSelector((state) => state.countries.countries);
 
-  const sortByMaxTotal = useSelector((state) => state.list.countriesMaxCount);
+  const sortByMaxTotal = useSelector((state) => state.countries.countriesMaxCount);
 
-  const sortByMinTotal = useSelector((state) => state.list.countriesMinCount);
+  const sortByMinTotal = useSelector((state) => state.countries.countriesMinCount);
 
-  const searchCountries = useSelector((state) => state.list.searchCountries);
+  const searchCountries = useSelector((state) => state.countries.searchCountries);
 
   const dispatch = useDispatch();
 

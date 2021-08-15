@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import covidStatisticReducer from '../Reducers/statisticReducer';
 
 const rootReducer = combineReducers({
-  list: covidStatisticReducer,
+  countries: covidStatisticReducer,
 });
 
 export default rootReducer;

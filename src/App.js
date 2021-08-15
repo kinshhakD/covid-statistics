@@ -9,7 +9,7 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
 
-  const loading = useSelector((state) => state.list.loading);
+  const loading = useSelector((state) => state.countries.loading);
 
   useEffect(() => {
     dispatch(statisticsMiddleWareActions.fetchCountries());
