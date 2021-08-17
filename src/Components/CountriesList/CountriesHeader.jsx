@@ -24,7 +24,7 @@ function CountriesHeader({ onTotal }) {
 }
 
 CountriesHeader.propTypes = {
-  onTotal: PropTypes.string.isRequired,
+  onTotal: PropTypes.func.isRequired,
 };
 
 export default CountriesHeader;

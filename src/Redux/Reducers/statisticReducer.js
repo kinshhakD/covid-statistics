@@ -4,8 +4,6 @@ const initialState = {
 
   countries: [],
   searchCountries: [],
-  countriesMinCount: [],
-  countriesMaxCount: [],
   countryDetail: {},
 
 };
@@ -25,8 +23,6 @@ const covidStatisticReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         countries: payload,
-        countriesMinCount: [].concat(payload).sort((a, b) => a.TotalConfirmed - b.TotalConfirmed),
-        countriesMaxCount: [].concat(payload).sort((a, b) => b.TotalConfirmed - a.TotalConfirmed),
       };
     case ActionTypes.SET_INPUT_SEARCH: {
       return {

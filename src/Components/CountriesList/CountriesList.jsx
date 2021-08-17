@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { List } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
+import { createSelector } from 'reselect';
 import { statisticsActions } from '../../Redux/Actions/statisticsActions';
 import CountriesHeader from './CountriesHeader';
 import CountryDetails from './CountryDetails';
@@ -13,11 +14,18 @@ function CountriesList() {
 
   const countries = useSelector((state) => state.countries.countries);
 
-  const sortByMaxTotal = useSelector((state) => state.countries.countriesMaxCount);
-
-  const sortByMinTotal = useSelector((state) => state.countries.countriesMinCount);
-
   const searchCountries = useSelector((state) => state.countries.searchCountries);
+
+  const sortByMaxTotal = useSelector(createSelector(
+    (state) => state.countries.countries,
+    (listCountriesMax) => [...listCountriesMax]
+      .sort((a, b) => a.TotalConfirmed - b.TotalConfirmed),
+  ));
+
+  const sortByMinTotal = useSelector(createSelector(
+    (state) => state.countries.countries,
+    (listCountriesMin) => [...listCountriesMin].sort((a, b) => b.TotalConfirmed - a.TotalConfirmed),
+  ));
 
   const dispatch = useDispatch();
 
