@@ -6,7 +6,11 @@ import CountriesHeader from './CountriesHeader';
 import CountryDetails from './CountryDetails';
 import CountryItem from './CountryItem';
 import {
-  countriesSelector, filteredCountriesSelector, sortByMaxSelector, sortByMinSelector,
+  countriesSelector,
+  filteredCountriesSelector,
+  searchCountriesSelector,
+  sortByMaxSelector,
+  sortByMinSelector,
 } from '../../Selectors/CountriesSelector';
 
 function CountriesList() {
@@ -15,6 +19,8 @@ function CountriesList() {
   const [sortByTotalConfirmed, setSortByTotalConfirmed] = useState('default');
 
   const countries = useSelector(countriesSelector);
+
+  const searchCountries = useSelector(searchCountriesSelector);
 
   const filteredCountries = useSelector(filteredCountriesSelector);
 
@@ -53,7 +59,7 @@ function CountriesList() {
     <List>
       <CountriesHeader onTotal={sortCountriesByTotal} />
       {
-        filteredCountries.length > 0 ? filteredCountries.map(({
+        searchCountries.length > 0 ? filteredCountries.map(({
           Country, TotalConfirmed, ID, TotalDeaths, TotalRecovered,
         }, index) => (
           <CountryItem

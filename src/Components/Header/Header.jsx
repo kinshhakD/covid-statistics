@@ -1,7 +1,7 @@
 import {
   Box, Input, makeStyles, Typography,
 } from '@material-ui/core';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { statisticsActions } from '../../Redux/Actions/statisticsActions';
 import search from '../../icons/search.svg';
@@ -54,12 +54,6 @@ function Header() {
     setSearchCountry(target.value);
     dispatch(statisticsActions.setInputSearch(target.value));
   };
-
-  useEffect(() => {
-    if (!searchCountry) {
-      dispatch(statisticsActions.searchCountries([]));
-    }
-  }, [searchCountry]);
 
   return (
     <header className={styles.header}>

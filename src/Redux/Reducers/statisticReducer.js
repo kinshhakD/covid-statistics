@@ -1,12 +1,10 @@
 import { ActionTypes } from '../Actions/statisticsActions';
 
 const initialState = {
-
   countries: [],
   inputSearch: '',
-  searchCountries: [],
   countryDetail: {},
-
+  loading: false,
 };
 
 const covidStatisticReducer = (state = initialState, { type, payload }) => {
@@ -29,13 +27,7 @@ const covidStatisticReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         // eslint-disable-next-line max-len
-        searchCountries: state.countries.filter(({ Country }) => Country.toLowerCase().includes(payload.toLowerCase())),
         inputSearch: payload,
-      };
-    }
-    case ActionTypes.SET_SEARCH: {
-      return {
-        ...state, searchCountries: payload,
       };
     }
     default:

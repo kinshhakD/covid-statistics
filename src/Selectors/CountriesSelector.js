@@ -2,6 +2,8 @@ import { createSelector } from 'reselect';
 
 export const countriesSelector = (state) => state.countries.countries;
 
+export const searchCountriesSelector = (state) => state.countries.inputSearch;
+
 export const filteredCountriesSelector = createSelector(
   (state) => state.countries.countries,
   (state) => state.countries.inputSearch,
