@@ -5,7 +5,9 @@ import { statisticsActions } from '../../Redux/Actions/statisticsActions';
 import CountriesHeader from './CountriesHeader';
 import CountryDetails from './CountryDetails';
 import CountryItem from './CountryItem';
-import { countriesSelector, sortByMaxSelector, sortByMinSelector } from '../../Selectors/CountriesSelector';
+import {
+  countriesSelector, filteredCountriesSelector, sortByMaxSelector, sortByMinSelector,
+} from '../../Selectors/CountriesSelector';
 
 function CountriesList() {
   const [isModal, setIsModal] = useState(false);
@@ -14,7 +16,7 @@ function CountriesList() {
 
   const countries = useSelector(countriesSelector);
 
-  const searchCountries = useSelector((state) => state.countries.searchCountries);
+  const filteredCountries = useSelector(filteredCountriesSelector);
 
   const sortByMaxTotal = useSelector(sortByMaxSelector);
 
@@ -51,7 +53,7 @@ function CountriesList() {
     <List>
       <CountriesHeader onTotal={sortCountriesByTotal} />
       {
-        searchCountries.length > 0 ? searchCountries.map(({
+        filteredCountries.length > 0 ? filteredCountries.map(({
           Country, TotalConfirmed, ID, TotalDeaths, TotalRecovered,
         }, index) => (
           <CountryItem

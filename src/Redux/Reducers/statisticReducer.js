@@ -3,6 +3,7 @@ import { ActionTypes } from '../Actions/statisticsActions';
 const initialState = {
 
   countries: [],
+  inputSearch: '',
   searchCountries: [],
   countryDetail: {},
 
@@ -29,6 +30,7 @@ const covidStatisticReducer = (state = initialState, { type, payload }) => {
         ...state,
         // eslint-disable-next-line max-len
         searchCountries: state.countries.filter(({ Country }) => Country.toLowerCase().includes(payload.toLowerCase())),
+        inputSearch: payload,
       };
     }
     case ActionTypes.SET_SEARCH: {
