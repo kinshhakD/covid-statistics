@@ -8,7 +8,7 @@ export const filteredCountriesSelector = createSelector(
   (state) => state.countries.countries,
   (state) => state.countries.inputSearch,
   // eslint-disable-next-line max-len
-  (countries, search) => countries.filter(({ Country }) => Country.toLowerCase().includes(search.toLowerCase())),
+  (countries, search) => countries.filter(({ Country }) => Country.trim().toLowerCase().startsWith(search.trim().toLowerCase())),
 );
 
 export const sortByMinSelector = createSelector(
